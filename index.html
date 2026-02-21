@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProTechSolutions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1 class="logo"> &#128722; ProTechSolutions</h1>
+    <button class="toggle-theme" id="toggleTheme">Login</button>
+    <button class="toggle2-theme" id="toggle2Theme"> &#128722; Cart</button>
+</header>
+
+<section class="hero">
+  <h1 class="hero-title"> NUMBER <span>ONE STORE IN TECHNOLOGY</span></h1>
+  <p class="hero-desc">Securing Your Future, Enhancing Your Workspace.</p>
+  <button class="btn-primary">Buy Now</button>
+</section>
+
+<div class="filter-wrap">
+  <p>Filter by</p>
+  
+  <!-- 1. The Inputs (Hidden) -->
+  <input type="radio" id="all" name="cat" checked>
+  <input type="radio" id="lp" name="cat">
+  <input type="radio" id="hp" name="cat">
+  <input type="radio" id="ac" name="cat">
+
+  <!-- 2. The Buttons (Labels) -->
+  <div class="btns">
+    <label for="all">All</label>
+    <label for="lp">Laptops</label>
+    <label for="hp">Headphones</label>
+    <label for="ac">Accessories</label>
+  </div>
+</div>
+
+<section class="products">
+  <h2>Featured Products 📦</h2>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+        <span class="tag sale">🏷️Sale</span>
+        <div class="product-img"></div>
+        <div class="product-title">Iphone 17</div>
+        <div class="product-desc">features a 6.3-inch OLED display, A19 chip, and a dual 48 MP camera system</div>
+        <div class="product-price">₱54,990</div>
+        <div class="rating">★★★★★ (5.0)</div>
+      <button class="product-btn">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <span class="tag sale">🏷️Sale</span>
+      <div class="product-img"></div>
+      <div class="product-title">Ultrabook Pro 14"</div>
+      <div class="product-desc">Intel i7 • 16GB RAM • 512GB SSD</div>
+      <div class="product-price">₱54,999</div>
+      <div class="rating">★★★★★ (4.9)</div>
+      <button class="product-btn">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <span class="tag new">🆕New</span>
+      <div class="product-img"></div>
+      <div class="product-title">Noise-Cancelling Headphones</div>
+      <div class="product-desc">Wireless • Fast Charge</div>
+      <div class="product-price">₱3,499</div>
+      <div class="rating">★★★★☆ (4.6)</div>
+      <button class="product-btn added">✔ Added</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img"></div>
+      <div class="product-title">Ergonomic Wireless Mouse</div>
+      <div class="product-desc">Silent Click • USB-C</div>
+      <div class="product-price">₱799</div>
+      <div class="rating">★★★★☆ (4.4)</div>
+      <button class="product-btn">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <span class="tag stock">Low Stock</span>
+      <div class="product-img"></div>
+      <div class="product-title">Mechanical Keyboard (RGB)</div>
+      <div class="product-desc">Blue Switch • RGB Backlight</div>
+      <div class="product-price">₱2,199</div>
+      <div class="rating">★★★★★ (4.8)</div>
+      <button class="product-btn">Add to Cart</button>
+      <div class="low-stock">Hurry! Few left in stock</div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.getElementById("toggleTheme").onclick = function () {
+    document.body.classList.toggle("dark");
+  };
+</script>
+
+</body>
+</html>

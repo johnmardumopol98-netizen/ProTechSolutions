@@ -1,0 +1,351 @@
+/* ================================
+   CSS VARIABLES (THEMING)
+================================ */
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --primary: #1e90ff;
+  --accent: #ff6b6b;
+  --radius: 12px;
+
+  /* Fluid Typography */
+  --title-size: clamp(2rem, 6vw, 4rem);
+  --subtitle-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+body.dark {
+  --bg: #111;
+  --text: #eee;
+  --primary: #0d6efd;
+  --accent: #ff8787;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ================================
+   HEADER (Flexbox)
+================================ */
+/* Ensure the header container acts as the anchor */
+.header {
+  position: relative;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center; /* Vertically centers the logo and content */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Base style for both buttons to avoid repetition */
+.toggle-theme, .toggle2-theme {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Keeps buttons centered vertically */
+  
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+/* Specific spacing for the first button */
+.toggle-theme {
+  right: 100px; /* Offset it so it doesn't overlap the second button */
+}
+
+/* Specific spacing for the second button */
+.toggle2-theme {
+  right: 1rem; /* Aligns exactly to the right edge */
+}
+
+/* Combined Hover Effect */
+.toggle-theme:hover, .toggle2-theme:hover {
+  transform: translateY(-50%) rotate(20deg); /* Must include translateY to keep centered */
+  background: var(--accent);
+}
+
+/* ================================
+   HERO SECTION
+================================ */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero-title {
+  font-size: var(--title-size);
+  margin: 0;
+}
+
+.hero-title span {
+  color: var(--primary);
+}
+
+.hero-desc {
+  font-size: var(--subtitle-size);
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  opacity: 0.9;
+}
+
+/* ================================
+   FILTER SECTION
+================================ */
+/* Hide default radio dots */
+input[type="radio"] { display: none; }
+
+/* Style labels as "pills" */
+.btns label {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin-right: 5px;
+}
+
+/* Logic: Style the label ONLY when its radio is checked */
+#all:checked ~ .btns label[for="all"],
+#lp:checked ~ .btns label[for="lp"],
+#hp:checked ~ .btns label[for="hp"],
+#ac:checked ~ .btns label[for="ac"] {
+  background-color: #e8f0fe; /* Light blue background */
+  color: #1a73e8;            /* Blue text */
+  border-color: #d2e3fc;
+}
+/* ================================
+   BUTTON (Animations + Transitions)
+================================ */
+.btn-primary {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  animation: fadeInUp 1s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   SECTION
+================================ */
+.products{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.products h2{
+  margin-bottom:20px;
+  font-size:22px;
+}
+
+/* Grid */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+/* Card */
+.product-card{
+  background: linear-gradient(135deg, #111, #0d6efd,#ff6b6b);
+  border-radius:var(--radius);
+  padding:15px;
+  box-shadow:0 8px 25px rgba(128, 45, 196, 0.08);
+  transition:0.3s ease;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+
+.product-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Tags */
+.tag{
+  position:absolute;
+  top:12px;
+  left:12px;
+  padding:4px 10px;
+  font-size:11px;
+  border-radius:20px;
+  color:#000000;
+  font-weight:600;
+}
+
+.tag.sale{background: #eeff01;}
+.tag.stock{background: #d10202;}
+.tag.new{background:var(--primary);}
+
+/* Image */
+.product-img{
+  width:100%;
+  height:140px;
+  border-radius:10px;
+  background:#f8f9fc;
+  margin-bottom:12px;
+}
+
+/* Title */
+.product-title{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+/* Description */
+.product-desc{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+/* Price */
+.product-price{
+  font-size:16px;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:6px;
+}
+
+/* Rating */
+.rating{
+  font-size:12px;
+  color:#fbbf24;
+  margin-bottom:12px;
+}
+
+/* Button */
+.product-btn{
+  margin-top:auto;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+  background:#e0e7ff;
+  color:var(--primary);
+}
+
+.product-btn:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* Active/Added */
+.product-btn.added{
+  background:var(--success);
+  color:#fff;
+}
+
+/* Low stock text */
+.low-stock{
+  font-size:11px;
+  color:var(--danger);
+  margin-top:6px;
+  text-align:center;
+}
+
+/* ================================
+   CSS GRID (Responsive)
+================================ */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 1rem;
+}
+
+/* ================================
+   CARDS (Pseudo-element + Hover)
+================================ */
+.card {
+  background: var(--bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--primary);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: var(--accent);
+  top: 0;
+  left: -100%;
+  transition: left 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+}
+
+.card:hover::before {
+  left: 0;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* ================================
+   8. MEDIA QUERY EXAMPLE
+================================ */
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
